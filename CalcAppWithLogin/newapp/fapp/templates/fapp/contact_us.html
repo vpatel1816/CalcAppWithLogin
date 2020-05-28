@@ -4,7 +4,7 @@
 {% block content %}
 
 
-            {% csrf_token %}
+
 
 <!DOCTYPE html>
 <html>
@@ -35,19 +35,26 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-  background-color: #45a049;
+  background-color: lightgrey;
+}
+h1 {
+  background-color: darkgrey;
+  color: black;
+}
+.containerforbody {
+  background-color: #D3D3D3;
 }
 
 .container {
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #D3D3D3;
   padding: 20px;
 }
 </style>
 </head>
-<body>
+<body class="containerforbody">
 
-<h3>Contact Form</h3>
+<h1>Contact Us</h1>
 
 <div class="container">
     <form action="{% url 'contact' %}" method="POST">
