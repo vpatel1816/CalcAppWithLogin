@@ -3,7 +3,8 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<body>
+<body bgcolor="lightgrey">
+<h1>Calculator</h1>
 <div class="container">
     <div class="row">
         <div class="col-sm-6 mx-auto" style="margin-top: 20px">
@@ -34,6 +35,7 @@
 
 </div>
 </body>
-
+{% else %}
+<p>Please Sign in to use Calculator</p>
 {% endif %}
 {% endblock %}

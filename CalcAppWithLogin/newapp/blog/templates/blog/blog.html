@@ -1,6 +1,186 @@
 {% extends 'base.html' %}
 {% block content %}
+{% if user.is_authenticated %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+/* Add a gray background color with some padding */
+body {
+  font-family: Arial;
+  padding: ;
+  background: #f1f1f1;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: darkgrey;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container {
+    width: 50%;
+  padding: 16px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password], input[type=textarea] {
+  width: 70%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=textarea]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+/* Header/Blog Title */
+.header {
+
+  font-size: 40px;
+  text-align: center;
+  background: white;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+  float: ;
+  width: 80%;
+  padding: 1px;
+}
+
+
+
+/* Add a card effect for articles */
+.card {
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .leftcolumn, .rightcolumn {
+    width: 100%;
+    padding: 0;
+  }
+}
+</style>
+
 <body>
-<h1>Blog App</h1>
+
+<div>
+  <h1>Blog List</h1>
+</div>
+
+{% for blog in blog %}
+  <div class="row">
+    <div class="leftcolumn">
+      <div class="card">
+        <h4>Title : {{ blog.blog_title }}</h4>
+        <h5>Date Posted: {{ blog.date }} Time Posted: {{ blog.time }}</h5>
+        <h5>Author : {{ blog.blog_author }}</h5>
+          <h4><p>{{ blog.blog_details }}</p></div></h4>
+      </div>
+  </div>
+{% endfor %}
+<br><br>
+
+
+  <div>
+    <div>
+        <div class="card">
+      <form action="{% url 'blog' %}" method="POST">
+          {% csrf_token %}
+  <div class="container">
+
+    <h3>Post a Blog</h3>
+    <hr>
+
+    <label for="email"><b>Blog Title</b></label><br>
+    <input type="text" placeholder="Blog Title" name="blog_title" id="email" required><br>
+
+    <label for="psw"><b>Blog Author</b></label><br>
+    <input type="text" placeholder="Blog Author" name="blog_author" id="psw" required><br>
+
+    <label for="psw-repeat"><b>Blog</b></label><br>
+    <input type="textarea" placeholder="Blog" name="blog_details" id="psw-repeat" required><br>
+    <hr>
+
+
+    <button type="submit" class="registerbtn">Post</button>
+  </div>
+      </div>
+
+</form>
+    </div>
+
+
+  </div>
+</div>
+
+
+
 </body>
+{% else %}
+<p>Please Sign in to checkout Blogs</p>
+{% endif %}
 {% endblock %}
