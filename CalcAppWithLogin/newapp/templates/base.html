@@ -74,18 +74,26 @@ body {
 
   <!-- Centered link -->
   <div class="topnav-centered">
-    <a href="{% url 'calculator' %}" class="active">Calculator</a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'calculator' %}" class="active">Calculator</a>
+    {% endif %}
   </div>
 
   <!-- Left-aligned links (default) -->
   <a href="{% url 'home' %}">Home</a>
-
   <a href="{% url 'about' %}">About Us</a>
+
+
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'register' %}">Register</a>
+    {% if user.is_authenticated %}
+      <a> {{ user.username }}</a>
+      <a href="{% url 'logout' %}">Log out</a>
+    {% else %}
+      <a href="{% url 'login' %}">Log in</a>
+      <a href="{% url 'register' %}">Register</a>
+    {% endif %}
     <a href="{% url 'contact' %}">Contact</a>
   </div>
 
@@ -99,10 +107,6 @@ body {
 
 </div>
 
-
-  </div>
-<center></center><footer id="footer">Project to Create a Website in Django, 2020</footer></center>
- </div>
 </body>
 </center>
 </html>
