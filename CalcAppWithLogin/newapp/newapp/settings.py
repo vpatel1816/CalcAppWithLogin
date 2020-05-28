@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'fapp',
     'accounts',
+    'blog',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

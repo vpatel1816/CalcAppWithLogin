@@ -24,4 +24,5 @@ urlpatterns = [
     path('fapp',include('fapp.urls')),
     path('',include('fapp.urls')),
     path('accounts/',include('accounts.urls')),
+    path('blog/', include('blog.urls')),
 ]
