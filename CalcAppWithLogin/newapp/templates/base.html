@@ -72,19 +72,13 @@ body {
 <!-- Top navigation -->
 <div class="topnav">
 
-  <!-- Centered link -->
-  <div class="topnav-centered">
-    {% if user.is_authenticated %}
-      <a href="{% url 'calculator' %}" class="active">Calculator</a>
-    {% endif %}
-    <a href="{% url 'blog' %}" class="active">BLOG</a>
-  </div>
-
   <!-- Left-aligned links (default) -->
   <a href="{% url 'home' %}">Home</a>
   <a href="{% url 'about' %}">About Us</a>
-
-
+    {% if user.is_authenticated %}
+      <a href="{% url 'blog' %}">Blog</a>
+      <a href="{% url 'calculator' %}">Calculator</a>
+    {% endif %}
 
   <!-- Right-aligned links -->
   <div class="topnav-right">
