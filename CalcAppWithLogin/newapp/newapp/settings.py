@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'fapp',
     'accounts',
     'blog',
+    'company',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
