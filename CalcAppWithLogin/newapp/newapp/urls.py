@@ -25,5 +25,6 @@ urlpatterns = [
     path('',include('fapp.urls')),
     path('accounts/',include('accounts.urls')),
     path('blog/', include('blog.urls')),
-    path('company/', include('company.urls')),
+    path('quiz/', include('quiz.urls')),
+
 ]

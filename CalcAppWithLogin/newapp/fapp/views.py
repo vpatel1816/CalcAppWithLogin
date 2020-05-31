@@ -26,8 +26,6 @@ def calculator(request):
     else:
         return render(request, 'fapp/calculator.html')
 
-
-
 def about(request):
     return render(request, 'fapp/about.html')
 
